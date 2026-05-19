@@ -1,9 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How's the weather there?</title>
+</head>
+<body>
+  <h1>How's the weather there?</h1>
+  <div id="searchbar-div">
+    <input type="text" id="searchbar" placeholder="Enter a location" />
+    <button id="search-btn">Search</button>
+  </div>
+  <div id="result-div">
+    <h4 id="location">Location</h4>
+    <div id="weather">
+      <h4>image</h4>
+      <h4 id="temp">28*C</h4>
+    </div>
+    <div class="info-row">
+      <p class="label">Conditions</p>
+      <p id="conditions">Rain</p>
+    </div>
+    <div class="info-row">
+      <p class="label">Feels like</p>
+      <p id="feels-like">33*C</p>
+    </div>
+    <div class="info-row">
+      <p class="label">Humidity</p>
+      <p id="humidity">67%</p>
+    </div>
+    <div class="info-row">
+      <p class="label">Wind Speed</p>
+      <p id="wind-speed">42.67%</p>
+    </div>
+  </div>
+</body>
 </html>
