@@ -55,11 +55,11 @@ async function displayWeatherResults(results) {
   const iconDisplay = document.getElementById("icon");
 
   locationDisplay.textContent = results.location;
-  tempDisplay.textContent = results.temperature;
+  tempDisplay.textContent = results.temperature + "°C";
   conditionsDisplay.textContent = results.conditions;
-  feelsLikeDisplay.textContent = results.feelsLike;
-  humidityDisplay.textContent = results.humidity;
-  windSpeedDisplay.textContent = results.windSpeed;
+  feelsLikeDisplay.textContent = results.feelsLike + "°C";
+  humidityDisplay.textContent = results.humidity + "%";
+  windSpeedDisplay.textContent = results.windSpeed + " km/h";
 
   const iconModule = await import(`./assets/${results.icon}.svg`);
   console.log(iconModule);
