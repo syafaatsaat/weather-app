@@ -20,8 +20,18 @@ class Weather {
   }
 }
 
+const loadingDisplay = document.getElementById("loading-div");
+const weatherDisplay = document.getElementById("weather-div");
+
+function displayLoadingDisplay() {
+  weatherDisplay.style.display = "none";
+  loadingDisplay.style.display = "flex";
+}
+
 async function getWeatherData(location) {
   try {
+    displayLoadingDisplay();
+
     const response = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=9QBSY4Y63DH3CXUKUBQVT85XY&contentType=json`
     );
@@ -64,6 +74,9 @@ async function displayWeatherResults(results) {
   const iconModule = await import(`./assets/${results.icon}.svg`);
   console.log(iconModule);
   iconDisplay.src = iconModule.default;
+
+  loadingDisplay.style.display = "none";
+  weatherDisplay.style.display = "grid";
 }
 
 getWeatherData("Singapore").then(response => {

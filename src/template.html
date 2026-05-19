@@ -10,32 +10,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>How's the weather there?</h1>
   <div id="searchbar-div">
     <input type="text" id="searchbar" placeholder="Enter a location" />
     <button id="search-btn">Search</button>
   </div>
-  <div id="weather-div">
-    <h4 id="location">Location</h4>
+  <div id="loading-div" class="display-div" hidden>
+    <h1>Gathering data...</h1>
+  </div>
+  <div id="weather-div" class="display-div" hidden>
+    <h4 id="location"></h4>
     <div id="weather">
       <img src="./assets/clear-day.svg" alt="Weather Icon" id="icon">
-      <h4 id="temp">28*C</h4>
+      <h4 id="temp"></h4>
     </div>
     <div class="info-row">
       <p class="label">Conditions</p>
-      <p id="conditions">Rain</p>
+      <p id="conditions"></p>
     </div>
     <div class="info-row">
       <p class="label">Feels like</p>
-      <p id="feels-like">33*C</p>
+      <p id="feels-like"></p>
     </div>
     <div class="info-row">
       <p class="label">Humidity</p>
-      <p id="humidity">67%</p>
+      <p id="humidity"></p>
     </div>
     <div class="info-row">
-      <p class="label">Wind Speed</p>
-      <p id="wind-speed">42.67%</p>
+      <p class="label">Wind speed</p>
+      <p id="wind-speed"></p>
     </div>
   </div>
 </body>
