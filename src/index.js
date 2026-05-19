@@ -7,7 +7,8 @@ class Weather {
     temperature, 
     feelsLike, 
     humidity,
-    windSpeed
+    windSpeed,
+    icon
   ) {
     this.location = location;
     this.conditions = conditions;
@@ -15,6 +16,7 @@ class Weather {
     this.feelsLike = feelsLike;
     this.humidity = humidity;
     this.windSpeed = windSpeed;
+    this.icon = icon;
   }
 }
 
@@ -29,11 +31,12 @@ async function getWeatherData(location) {
 
     const weatherResults = new Weather(
       json.address,
-      json.currentConditions.conditions,
-      json.currentConditions.temp,
-      json.currentConditions.feelslike,
-      json.currentConditions.humidity,
-      json.currentConditions.windspeed
+      json.days[0].conditions,
+      json.days[0].temp,
+      json.days[0].feelslike,
+      json.days[0].humidity,
+      json.days[0].windspeed,
+      json.days[0].icon
     );
     console.log(weatherResults);
     return weatherResults;
@@ -42,13 +45,14 @@ async function getWeatherData(location) {
   }
 }
 
-function displayWeatherResults(results) {
+async function displayWeatherResults(results) {
   const locationDisplay = document.getElementById("location");
   const tempDisplay = document.getElementById("temp");
   const conditionsDisplay = document.getElementById("conditions");
   const feelsLikeDisplay = document.getElementById("feels-like");
   const humidityDisplay = document.getElementById("humidity");
   const windSpeedDisplay = document.getElementById("wind-speed");
+  const iconDisplay = document.getElementById("icon");
 
   locationDisplay.textContent = results.location;
   tempDisplay.textContent = results.temperature;
@@ -56,9 +60,15 @@ function displayWeatherResults(results) {
   feelsLikeDisplay.textContent = results.feelsLike;
   humidityDisplay.textContent = results.humidity;
   windSpeedDisplay.textContent = results.windSpeed;
+
+  const iconModule = await import(`./assets/${results.icon}.svg`);
+  console.log(iconModule);
+  iconDisplay.src = iconModule.default;
 }
 
-//getWeatherData("Singapore");
+getWeatherData("Singapore").then(response => {
+  displayWeatherResults(response);
+});
 
 const searchBtn = document.getElementById("search-btn");
 const searchBar = document.getElementById("searchbar");

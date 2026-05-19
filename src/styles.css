@@ -1,0 +1,16 @@
+:root {
+  --dark-gray: rgb(37, 37, 37);
+}
+
+/* GENERAL ------------------------------------------------------------------ */
+
+body {
+  background-color: var(--dark-gray);
+  color: white;
+}
+
+#icon {
+  width: 100px;
+  height: 100px;
+  filter: brightness(0) invert(1);
+}
